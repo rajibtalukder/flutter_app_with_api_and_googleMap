@@ -1,0 +1,99 @@
+Flutter crash report.
+Please report a bug at https://github.com/flutter/flutter/issues.
+
+## command
+
+flutter build apk --analyze-size --release --target-platform android-arm64
+
+## exception
+
+PathNotFoundException: PathNotFoundException: Cannot open file, path = 'build\flutter_size_04\snapshot.arm64-v8a.json' (OS Error: The system cannot find the file specified.
+, errno = 2)
+
+```
+#0      _File.throwIfError (dart:io/file_impl.dart:629:7)
+#1      _File.openSync (dart:io/file_impl.dart:473:5)
+#2      _File.readAsBytesSync (dart:io/file_impl.dart:533:18)
+#3      _File.readAsStringSync (dart:io/file_impl.dart:578:18)
+#4      ForwardingFile.readAsStringSync (package:file/src/forwarding/forwarding_file.dart:99:16)
+#5      ErrorHandlingFile.readAsStringSync.<anonymous closure> (package:flutter_tools/src/base/error_handling_io.dart:222:22)
+#6      _runSync (package:flutter_tools/src/base/error_handling_io.dart:600:14)
+#7      ErrorHandlingFile.readAsStringSync (package:flutter_tools/src/base/error_handling_io.dart:221:12)
+#8      SizeAnalyzer.analyzeZipSizeAndAotSnapshot (package:flutter_tools/src/base/analyze_size.dart:119:64)
+#9      AndroidGradleBuilder._performCodeSizeAnalysis (package:flutter_tools/src/android/gradle.dart:518:60)
+#10     AndroidGradleBuilder.buildGradleApp (package:flutter_tools/src/android/gradle.dart:499:15)
+<asynchronous suspension>
+#11     AndroidGradleBuilder.buildApk (package:flutter_tools/src/android/gradle.dart:184:5)
+<asynchronous suspension>
+#12     BuildApkCommand.runCommand (package:flutter_tools/src/commands/build_apk.dart:111:5)
+<asynchronous suspension>
+#13     FlutterCommand.run.<anonymous closure> (package:flutter_tools/src/runner/flutter_command.dart:1257:27)
+<asynchronous suspension>
+#14     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#15     CommandRunner.runCommand (package:args/command_runner.dart:209:13)
+<asynchronous suspension>
+#16     FlutterCommandRunner.runCommand.<anonymous closure> (package:flutter_tools/src/runner/flutter_command_runner.dart:283:9)
+<asynchronous suspension>
+#17     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#18     FlutterCommandRunner.runCommand (package:flutter_tools/src/runner/flutter_command_runner.dart:229:5)
+<asynchronous suspension>
+#19     run.<anonymous closure>.<anonymous closure> (package:flutter_tools/runner.dart:64:9)
+<asynchronous suspension>
+#20     AppContext.run.<anonymous closure> (package:flutter_tools/src/base/context.dart:150:19)
+<asynchronous suspension>
+#21     main (package:flutter_tools/executable.dart:91:3)
+<asynchronous suspension>
+```
+
+## flutter doctor
+
+```
+[32m[✓][39m Flutter (Channel stable, 3.7.0, on Microsoft Windows [Version 10.0.22621.1413], locale en-US)
+    [32m•[39m Flutter version 3.7.0 on channel stable at C:\src\flutter
+    [32m•[39m Upstream repository https://github.com/flutter/flutter.git
+    [32m•[39m Framework revision b06b8b2710 (10 weeks ago), 2023-01-23 16:55:55 -0800
+    [32m•[39m Engine revision b24591ed32
+    [32m•[39m Dart version 2.19.0
+    [32m•[39m DevTools version 2.20.1
+
+[32m[✓][39m Windows Version (Installed version of Windows is version 10 or higher)
+
+[32m[✓][39m Android toolchain - develop for Android devices (Android SDK version 33.0.1)
+    [32m•[39m Android SDK at C:\Users\DeepGreen\AppData\Local\Android\sdk
+    [32m•[39m Platform android-33-ext4, build-tools 33.0.1
+    [32m•[39m Java binary at: C:\Program Files\Android\Android Studio\jre\bin\java
+    [32m•[39m Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+    [32m•[39m All Android licenses accepted.
+
+[32m[✓][39m Chrome - develop for the web
+    [32m•[39m Chrome at C:\Program Files\Google\Chrome\Application\chrome.exe
+
+[31m[✗][39m Visual Studio - develop for Windows
+    [31m✗[39m Visual Studio not installed; this is necessary for Windows development.
+      Download at https://visualstudio.microsoft.com/downloads/.
+      Please install the "Desktop development with C++" workload, including all of its default components
+
+[32m[✓][39m Android Studio (version 2021.3)
+    [32m•[39m Android Studio at C:\Program Files\Android\Android Studio
+    [32m•[39m Flutter plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/9212-flutter
+    [32m•[39m Dart plugin can be installed from:
+      🔨 https://plugins.jetbrains.com/plugin/6351-dart
+    [32m•[39m Java version OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)
+
+[32m[✓][39m VS Code (version 1.77.0)
+    [32m•[39m VS Code at C:\Users\DeepGreen\AppData\Local\Programs\Microsoft VS Code
+    [32m•[39m Flutter extension version 3.60.0
+
+[32m[✓][39m Connected device (3 available)
+    [32m•[39m Windows (desktop) • windows • windows-x64    • Microsoft Windows [Version 10.0.22621.1413]
+    [32m•[39m Chrome (web)      • chrome  • web-javascript • Google Chrome 111.0.5563.147
+    [32m•[39m Edge (web)        • edge    • web-javascript • Microsoft Edge 111.0.1661.41
+
+[32m[✓][39m HTTP Host Availability
+    [32m•[39m All required HTTP hosts are available
+
+[33m![39m Doctor found issues in 1 category.
+```
